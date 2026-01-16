@@ -7,11 +7,17 @@
     <style>
         body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #333; color: #333; }
         
+        /* VIDEO ARKA PLAN (Siyahlıkları Yok Eden Düzeltme) */
         #bg-video {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -1; object-fit: cover; filter: blur(8px); transform: scale(1.05);
+            z-index: -1; 
+            object-fit: cover; 
+            filter: blur(8px); 
+            /* BURASI DÜZELTİLDİ: 1.05 yerine 1.3 yapıldı (Diğer sayfalarla aynı oldu) */
+            transform: scale(1.3); 
         }
 
+        /* NAVBAR (İnce ve Hizalı) */
         nav { 
             background-color: rgba(255, 255, 255, 0.95); 
             padding: 10px 50px; 
@@ -21,16 +27,14 @@
             box-sizing: border-box;
         }
         
-        /* LOGO AYARLARI (TEMİZLENDİ) */
+        /* LOGO (Çerçevesiz, Temiz) */
         .logo-link img { 
-            height: 80px; 
-            width: auto; 
-            margin-right: 0; 
-            transition: 0.3s;
-            /* Border ve Radius kodları SİLİNDİ */
+            height: 80px; width: auto; 
+            margin-right: 0; transition: 0.3s;
         }
         .logo-link img:hover { opacity: 0.8; transform: scale(1.05); }
         
+        /* MENÜ LİNKLERİ */
         nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
         nav ul li { margin-left: 30px; }
         nav ul li a { text-decoration: none; color: #555; font-weight: 700; font-size: 20px; transition: 0.3s; }
