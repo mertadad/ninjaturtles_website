@@ -7,27 +7,21 @@
     <style>
         body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #333; color: #333; }
         
-        /* VIDEO BACKGROUND (FULL SCREEN + BLUR) */
+        /* VIDEO (Sabit ve Bulanık) */
         #bg-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
+            position: fixed; top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
             z-index: -1;
-            filter: blur(8px);
-            -webkit-filter: blur(8px);
-            transform: scale(1.05);
+            transform: translate(-50%, -50%) scale(1.05);
+            object-fit: cover;
+            filter: blur(8px); -webkit-filter: blur(8px);
         }
 
         nav { background-color: rgba(255, 255, 255, 0.90); padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .nav-left { display: flex; align-items: center; }
-        
-        /* LOGO: logo.png */
-        .logo-link img { height: 120px; width: auto; margin-right: 25px; transition: opacity 0.3s; }
+        .logo-link img { height: 120px; width: auto; margin-right: 0; transition: opacity 0.3s; }
         .logo-link img:hover { opacity: 0.8; }
-        .site-title { font-size: 26px; font-weight: bold; color: #333; text-transform: uppercase; letter-spacing: 1px; }
         
         nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
         nav ul li { margin-left: 30px; }
@@ -42,7 +36,14 @@
         h3 { color: #00AEEF; margin-top: 40px; font-size: 1.5rem; }
         p { line-height: 1.8; color: #555; margin-bottom: 15px; font-size: 1.1rem; }
         ul.report-list { margin-bottom: 20px; color: #555; font-size: 1.1rem; padding-left: 20px; line-height: 1.8;}
-        footer { background-color: #222; color: #aaa; text-align: center; padding: 20px; margin-top: 50px; }
+        
+        /* FOOTER */
+        footer { 
+            background-color: #222; color: #aaa; padding: 30px 50px; margin-top: 50px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-title { font-weight: bold; font-size: 1.1rem; }
+        .footer-names { text-align: right; font-size: 0.9rem; line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -53,7 +54,6 @@
     <nav>
         <div class="nav-left">
             <a href="index.html" class="logo-link"><img src="logo.png" alt="Home Logo"></a>
-            <div class="site-title">NYC DATA</div>
         </div>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -73,6 +73,15 @@
             <li><strong>Commuter Flows:</strong> 80% of weekday traffic is directed towards major business districts.</li>
         </ul>
     </div>
-    <footer>© 2024 Data Science Project Team</footer>
+
+    <footer>
+        <div class="footer-title">2026 IE 421 Data Science for Engineering</div>
+        <div class="footer-names">
+            Mert Ada Demirbaş<br>
+            Bersu Yılmaz<br>
+            Veli Erenay Açıl<br>
+            Emirhan Karaca
+        </div>
+    </footer>
 </body>
 </html>
