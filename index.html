@@ -18,7 +18,7 @@
             object-fit: cover;
         }
 
-        /* ŞEFFAF MENÜ (HİZALAMA İÇİN GÜNCELLENDİ) */
+        /* ŞEFFAF MENÜ */
         nav { 
             position: fixed; top: 0; width: 100%; 
             /* Diğer sayfalardaki İNCE BAR ile aynı hizaya gelmesi için boşluk ayarlandı */
@@ -58,7 +58,14 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
         }
         .footer-title { font-weight: bold; font-size: 1.2rem; }
-        .footer-names { text-align: right; font-size: 1.2rem; line-height: 1.5; font-weight: 600; }
+        
+        /* GÜNCELLENEN KISIM: İSİMLER SOLA HİZALI */
+        .footer-names { 
+            text-align: left; /* İsimlerin baş harfleri aynı hizada başlar */
+            font-size: 1.2rem; 
+            line-height: 1.5; 
+            font-weight: 600; 
+        }
     </style>
 </head>
 <body>
