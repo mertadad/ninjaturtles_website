@@ -5,41 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NYC Citi Bike | Home</title>
     <style>
-        /* --- SHARED CSS & BACKGROUND --- */
+        /* --- GENEL AYARLAR --- */
         body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #333; color: #333; }
-        .background-image {
-            position: fixed; top: -20px; left: -20px; width: 110%; height: 110%; z-index: -1;
-            background-image: url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=2071&auto=format&fit=crop');
-            background-size: cover; background-position: center;
-            filter: blur(6px); -webkit-filter: blur(6px);
+        
+        /* --- VİDEO ARKA PLAN AYARLARI --- */
+        #bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1; /* En arkaya atar */
+            object-fit: cover; /* Ekranı tam kaplar */
         }
 
         /* NAVBAR & LOGO */
-        nav { background-color: rgba(255, 255, 255, 0.95); padding: 15px 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        nav { background-color: rgba(255, 255, 255, 0.90); padding: 15px 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .nav-left { display: flex; align-items: center; }
-        
-        /* LOGO STYLE */
-        .logo-link img {
-            height: 120px; 
-            width: auto;
-            margin-right: 25px;
-            transition: opacity 0.3s;
-            border-radius: 0; 
-        }
+        .logo-link img { height: 120px; width: auto; margin-right: 25px; transition: opacity 0.3s; border-radius: 0; }
         .logo-link img:hover { opacity: 0.8; }
-
         .site-title { font-size: 26px; font-weight: bold; color: #333; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* MENU STYLE (UPDATED FONT SIZE) */
+        /* MENU STYLE */
         nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
-        nav ul li { margin-left: 30px; } /* Biraz daha aralık verdik */
-        nav ul li a { 
-            text-decoration: none; 
-            color: #555; 
-            font-weight: 700; /* Daha kalın */
-            font-size: 22px;  /* BÜYÜTÜLDÜ (Eskisi 16px idi) */
-            transition: color 0.3s; 
-        }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { text-decoration: none; color: #555; font-weight: 700; font-size: 22px; transition: color 0.3s; }
         nav ul li a:hover, nav ul li a.active { color: #00AEEF; border-bottom: 3px solid #00AEEF; padding-bottom: 5px; }
 
         /* CONTENT BOX */
@@ -49,20 +39,20 @@
         }
         h1 { font-size: 3rem; color: #2c3e50; margin-bottom: 15px; }
         p.subtitle { font-size: 1.5rem; color: #7f8c8d; font-weight: 300; margin-bottom: 40px; }
-        
         .cta-btn { background-color: #00AEEF; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 20px; font-size: 1.2rem;}
         .cta-btn:hover { background-color: #008ac0; }
         footer { background-color: #222; color: #aaa; text-align: center; padding: 20px; margin-top: 50px; }
     </style>
 </head>
 <body>
-    <div class="background-image"></div>
+
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="background.mp4" type="video/mp4">
+    </video>
     
     <nav>
         <div class="nav-left">
-            <a href="index.html" class="logo-link">
-                <img src="home_png.png" alt="Home Logo">
-            </a>
+            <a href="index.html" class="logo-link"><img src="home_png.png" alt="Home Logo"></a>
             <div class="site-title">NYC DATA</div>
         </div>
         <ul>
