@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC Citi Bike | Home</title>
+    <style>
+        /* --- SHARED CSS & BACKGROUND --- */
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #333; color: #333; }
+        .background-image {
+            position: fixed; top: -20px; left: -20px; width: 110%; height: 110%; z-index: -1;
+            /* High quality blurry bike photo */
+            background-image: url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=2071&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+            filter: blur(6px); -webkit-filter: blur(6px);
+        }
+
+        /* NAVBAR & LOGO (UPDATED SIZE) */
+        /* Increased padding for bigger logo */
+        nav { background-color: rgba(255, 255, 255, 0.95); padding: 15px 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .nav-left { display: flex; align-items: center; }
+        
+        /* BIGGER LOGO STYLE */
+        .logo-link img {
+            height: 120px; /* MUCH BIGGER NOW */
+            width: auto;
+            margin-right: 25px;
+            transition: opacity 0.3s;
+            border-radius: 0; /* Keeps original shape */
+        }
+        .logo-link img:hover { opacity: 0.8; }
+
+        .site-title { font-size: 26px; font-weight: bold; color: #333; text-transform: uppercase; letter-spacing: 1px; }
+
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { text-decoration: none; color: #555; font-weight: 600; font-size: 16px; transition: color 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: #00AEEF; border-bottom: 2px solid #00AEEF; padding-bottom: 5px; }
+
+        /* CONTENT BOX */
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.95); width: 80%; max-width: 900px; margin: 80px auto; padding: 60px;
+            border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); text-align: center;
+        }
+        h1 { font-size: 3rem; color: #2c3e50; margin-bottom: 15px; }
+        p.subtitle { font-size: 1.5rem; color: #7f8c8d; font-weight: 300; margin-bottom: 40px; }
+        
+        .cta-btn { background-color: #00AEEF; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 20px; font-size: 1.1rem;}
+        .cta-btn:hover { background-color: #008ac0; }
+        footer { background-color: #222; color: #aaa; text-align: center; padding: 20px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    
+    <nav>
+        <div class="nav-left">
+            <a href="index.html" class="logo-link">
+                <img src="home_png.png" alt="Home Logo">
+            </a>
+            <div class="site-title">NYC DATA</div>
+        </div>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="visualization.html">Visualization</a></li>
+            <li><a href="details.html">Project Details</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-box">
+        <h1>NYC Bike Sharing Analysis</h1>
+        <p class="subtitle">Unlocking the City's Rhythm with Data</p>
+        <p style="font-size: 1.2rem; color: #555; line-height: 1.8;">
+            Is there a pattern to the chaos of New York City traffic? We analyzed millions of Citi Bike rides to visualize the heartbeat of the city. Explore commuting patterns, peak hours, and popular routes.
+        </p>
+        <a href="visualization.html" class="cta-btn">Explore the Charts →</a>
+    </div>
+
+    <footer>© 2024 Data Science Project Team</footer>
+</body>
+</html>
