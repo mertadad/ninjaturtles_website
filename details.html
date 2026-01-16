@@ -12,23 +12,22 @@
             z-index: -1; object-fit: cover; filter: blur(8px); transform: scale(1.05);
         }
 
-        /* NAVBAR (İNCELTİLDİ) */
         nav { 
             background-color: rgba(255, 255, 255, 0.95); 
-            padding: 10px 50px; /* Üst/Alt boşluk azaltıldı */
+            padding: 10px 50px; 
             display: flex; justify-content: space-between; align-items: center; 
             position: sticky; top: 0; z-index: 1000; 
             box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
             box-sizing: border-box;
         }
         
-        /* LOGO (ÇERÇEVELİ) */
+        /* LOGO AYARLARI (TEMİZLENDİ) */
         .logo-link img { 
-            height: 80px; width: 80px; object-fit: cover;
-            margin-right: 0; transition: 0.3s;
-            border-radius: 50%; 
-            border: 4px solid #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            height: 80px; 
+            width: auto; 
+            margin-right: 0; 
+            transition: 0.3s;
+            /* Border ve Radius kodları SİLİNDİ */
         }
         .logo-link img:hover { opacity: 0.8; transform: scale(1.05); }
         
@@ -62,7 +61,6 @@
             <li><a href="visualization.html">Visualization</a></li>
         </ul>
     </nav>
-
     <div class="content-box">
         <h1>Project Report</h1>
         <h3>1. Introduction & Goal</h3>
