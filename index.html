@@ -1,3 +1,9 @@
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +12,7 @@
     <title>NYC Citi Bike | Home</title>
     <style>
         /* --- GENEL AYARLAR --- */
-        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #212121; color: #333; overflow: hidden; height: 100vh; }
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #333; color: #333; overflow: hidden; height: 100vh; }
         
         /* VIDEO ARKA PLAN */
         #bg-video {
@@ -16,27 +22,26 @@
             z-index: -1;
             transform: translate(-50%, -50%) scale(1.3);
             object-fit: cover;
-            filter: brightness(0.7); /* Yeşiller patlasın diye videoyu hafif kararttık */
         }
+
+        /* NOT: Menü (nav) stilleri buradan silindi çünkü bu sayfada artık menü yok. */
 
         /* ORTA KUTU */
         .content-box {
             position: absolute; top: 45%; left: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0.90);
+            /* Şeffaflık ayarı (0.60) */
+            background-color: rgba(255, 255, 255, 0.60);
             width: 70%; max-width: 900px; padding: 50px;
             border-radius: 12px; text-align: center;
-            /* Hafif Yeşil Gölge (Mutagen Glow) */
-            box-shadow: 0 15px 35px rgba(0, 200, 83, 0.3); 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
+        h1 { font-size: 2.5rem; color: #2c3e50; margin-bottom: 15px; }
+        p.subtitle { font-size: 1.3rem; color: #7f8c8d; font-weight: 300; margin-bottom: 30px; }
         
-        /* Başlık: Koyu Yeşil */
-        h1 { font-size: 2.5rem; color: #1B5E20; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-        p.subtitle { font-size: 1.3rem; color: #555; font-weight: 300; margin-bottom: 30px; }
-        
-        /* --- BUTONLAR (YEŞİL TEMA) --- */
+        /* --- BUTON AYARLARI --- */
         .cta-btn { 
-            background-color: #00C853; /* Canlı Yeşil */
+            background-color: #00AEEF; 
             color: white; 
             padding: 15px 30px; 
             text-decoration: none; 
@@ -46,21 +51,20 @@
             display: inline-block; 
             margin: 10px;
             transition: 0.3s; 
-            box-shadow: 0 4px 15px rgba(0, 200, 83, 0.4);
         }
 
+        /* ÜZERİNE GELİNCE BÜYÜME EFEKTİ */
         .cta-btn:hover { 
-            background-color: #009624; /* Hover: Koyu Yeşil */
+            background-color: #008ac0; 
             transform: scale(1.05);    
         }
 
-        /* İkincil Buton (Koyu Gri) */
+        /* Koyu renkli ikincil buton */
         .cta-btn-secondary {
-            background-color: #263238; 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            background-color: #2c3e50; 
         }
         .cta-btn-secondary:hover { 
-            background-color: #1B5E20; 
+            background-color: #1a252f; 
             transform: scale(1.05); 
         }
 
@@ -69,11 +73,10 @@
             position: absolute; bottom: 0; width: 100%;
             padding: 30px 50px; 
             display: flex; justify-content: space-between; align-items: flex-end;
-            color: #e8f5e9; /* Açık yeşilimsi beyaz */
-            box-sizing: border-box;
+            color: white; box-sizing: border-box;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
         }
-        .footer-title { font-weight: bold; font-size: 1.2rem; color: #00C853; }
+        .footer-title { font-weight: bold; font-size: 1.2rem; }
         .footer-names { text-align: left; font-size: 1.2rem; line-height: 1.5; font-weight: 600; }
     </style>
 </head>
@@ -83,9 +86,9 @@
     </video>
     
     <div class="content-box">
-        <h1>NYC Bike Sharing Analysis</h1>
+        <h1>NYC Citi Bike Sharing Analysis</h1>
         <p class="subtitle">Unlocking the City's Rhythm with Data</p>
-        <p style="font-size: 1.1rem; color: #444; line-height: 1.6;">
+        <p style="font-size: 1.1rem; color: #555; line-height: 1.6;">
             Is there a pattern to the chaos of New York City traffic? We analyzed millions of Citi Bike rides.
         </p>
         
