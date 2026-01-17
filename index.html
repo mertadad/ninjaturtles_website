@@ -6,7 +6,12 @@
     <title>NYC Citi Bike | Home</title>
     <style>
         /* --- GENEL AYARLAR --- */
-        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #333; color: #333; overflow: hidden; height: 100vh; }
+        /* FONT GÜNCELLEMESİ: Arial yapıldı */
+        body { 
+            margin: 0; padding: 0; 
+            font-family: Arial, sans-serif; /* Tüm site Arial oldu */
+            background-color: #333; color: #333; overflow: hidden; height: 100vh; 
+        }
         
         /* VIDEO ARKA PLAN */
         #bg-video {
@@ -18,14 +23,14 @@
             object-fit: cover;
         }
 
-        /* ORTA KUTU (Daha Belirgin) */
+        /* ORTA KUTU (Son karar kıldığımız ayarlar) */
         .content-box {
             position: absolute; 
-            top: 35%; 
+            top: 35%; /* Yukarıda */
             left: 50%;
             transform: translate(-50%, -50%);
             
-            /* GÜNCELLENEN KISIM: Saydamlık 0.15'ten 0.35'e çıkarıldı */
+            /* Saydamlık: 0.35 (Arkası görünüyor ama belirgin) */
             background-color: rgba(255, 255, 255, 0.35);
             
             width: 50%; 
@@ -34,17 +39,15 @@
             
             border-radius: 12px; text-align: center;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-            
-            /* İnce Çerçeve */
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         h1 { 
-            font-size: 2.2rem; 
+            font-size: 2.5rem; 
             color: #2c3e50; 
             margin-bottom: 30px; 
-            /* Yazı okunurluğu için gölge */
             text-shadow: 0px 0px 20px rgba(255,255,255,0.9), 0px 0px 5px rgba(0,0,0,0.2); 
+            font-weight: bold;
         }
         
         /* --- BUTON AYARLARI --- */
@@ -62,13 +65,11 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
         }
 
-        /* ÜZERİNE GELİNCE BÜYÜME EFEKTİ */
         .cta-btn:hover { 
             background-color: #008ac0; 
             transform: scale(1.05);    
         }
 
-        /* Koyu renkli ikincil buton */
         .cta-btn-secondary {
             background-color: #2c3e50; 
         }
@@ -85,8 +86,8 @@
             color: white; box-sizing: border-box;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
         }
-        .footer-title { font-weight: bold; font-size: 1.2rem; }
-        .footer-names { text-align: left; font-size: 1.2rem; line-height: 1.5; font-weight: 600; }
+        .footer-title { font-weight: bold; font-size: 1.1rem; }
+        .footer-names { text-align: left; font-size: 1.1rem; line-height: 1.5; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -95,7 +96,7 @@
     </video>
     
     <div class="content-box">
-        <h1>NYC Citi Bike Sharing Analysis</h1>
+        <h1>NYC Citi Bike Analysis</h1>
         
         <a href="details.html" class="cta-btn cta-btn-secondary">Explore the Details</a>
         <a href="visualization.html" class="cta-btn">Explore the Charts</a>
