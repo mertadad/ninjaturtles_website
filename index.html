@@ -18,26 +18,13 @@
             object-fit: cover;
         }
 
-        /* ŞEFFAF MENÜ */
-        nav { 
-            position: fixed; top: 0; width: 100%; 
-            padding: 35px 50px 10px 50px; 
-            display: flex; justify-content: flex-end; 
-            background: transparent; z-index: 1000; box-sizing: border-box;
-        }
-        
-        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
-        nav ul li { margin-left: 30px; }
-        nav ul li a { 
-            text-decoration: none; color: white; font-weight: 700; font-size: 20px; 
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5); transition: 0.3s;
-        }
-        nav ul li a:hover, nav ul li a.active { color: #00AEEF; }
+        /* NOT: Menü (nav) stilleri buradan silindi çünkü bu sayfada artık menü yok. */
 
         /* ORTA KUTU */
         .content-box {
             position: absolute; top: 45%; left: 50%;
             transform: translate(-50%, -50%);
+            /* Şeffaflık ayarı (0.60) */
             background-color: rgba(255, 255, 255, 0.60);
             width: 70%; max-width: 900px; padding: 50px;
             border-radius: 12px; text-align: center;
@@ -46,7 +33,7 @@
         h1 { font-size: 2.5rem; color: #2c3e50; margin-bottom: 15px; }
         p.subtitle { font-size: 1.3rem; color: #7f8c8d; font-weight: 300; margin-bottom: 30px; }
         
-        /* --- BUTON AYARLARI (GÜNCELLENDİ) --- */
+        /* --- BUTON AYARLARI --- */
         .cta-btn { 
             background-color: #00AEEF; 
             color: white; 
@@ -57,23 +44,22 @@
             font-size: 1.1rem; 
             display: inline-block; 
             margin: 10px;
-            /* HAREKETİN YUMUŞAK OLMASI İÇİN: */
             transition: 0.3s; 
         }
 
-        /* ÜZERİNE GELİNCE NE OLACAK? */
+        /* ÜZERİNE GELİNCE BÜYÜME EFEKTİ */
         .cta-btn:hover { 
-            background-color: #008ac0; /* Renk koyulaşır */
-            transform: scale(1.05);    /* BURASI HAREKETİ SAĞLAR (BÜYÜR) */
+            background-color: #008ac0; 
+            transform: scale(1.05);    
         }
 
-        /* Soldaki gri buton için özel renk ayarı */
+        /* Koyu renkli ikincil buton */
         .cta-btn-secondary {
             background-color: #2c3e50; 
         }
         .cta-btn-secondary:hover { 
             background-color: #1a252f; 
-            transform: scale(1.05); /* Bu da büyüsün */
+            transform: scale(1.05); 
         }
 
         /* FOOTER */
@@ -93,14 +79,6 @@
         <source src="background.mp4" type="video/mp4">
     </video>
     
-    <nav>
-        <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="details.html">Project Details</a></li>
-            <li><a href="visualization.html">Visualization</a></li>
-        </ul>
-    </nav>
-
     <div class="content-box">
         <h1>NYC Bike Sharing Analysis</h1>
         <p class="subtitle">Unlocking the City's Rhythm with Data</p>
