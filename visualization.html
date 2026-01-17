@@ -85,9 +85,25 @@
             height: 400px; display: flex; justify-content: center; align-items: center;
         }
         
-        .chart-desc { margin-top: 20px; color: #666; font-size: 1.1rem; line-height: 1.6; background-color: #f0f8ff; padding: 15px; border-radius: 5px; }
+        .chart-desc { margin-top: 20px; color: #666; font-size: 1.2rem; line-height: 1.6; background-color: #f0f8ff; padding: 15px; border-radius: 5px; }
 
         footer { text-align: center; color: #ddd; padding: 20px; font-size: 0.9rem; margin-top: 20px; }
+
+        /* YENİ LEGEND STİLİ (YAN YANA) */
+        .custom-legend {
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 30px; 
+            margin-top: 20px; 
+            margin-bottom: 10px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        .legend-item { display: flex; align-items: center; font-size: 0.95rem; color: #444; font-weight: bold; }
+        .color-box { width: 20px; height: 20px; margin-right: 8px; border-radius: 3px; }
 
         /* Lightbox */
         #lightbox {
@@ -159,8 +175,19 @@
                     <img src="barchart.png" alt="Station Imbalance Analysis" class="chart-img" onclick="openLightbox(this)">
                 </div>
 
-                <div style="display: flex; justify-content: center; margin-top: 25px; margin-bottom: 15px;">
-                    <img src="legend.png" alt="Chart Legend" style="max-width: 50%; height: auto; border: 1px solid #eee; padding: 10px; border-radius: 8px; background-color: #fff;">
+                <div class="custom-legend">
+                    <div class="legend-item">
+                        <span class="color-box" style="background-color: #8B0000;"></span> 
+                        Source (Deficit -)
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box" style="background-color: #004c99;"></span> 
+                        Sink (Excess +)
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box" style="background: linear-gradient(to right, #ccc, #555);"></span> 
+                        Imbalance Intensity
+                    </div>
                 </div>
 
                 <p class="chart-desc" style="font-size: 1.2rem; line-height: 1.6; text-align: justify;">
