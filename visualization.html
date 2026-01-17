@@ -50,6 +50,7 @@
             padding-left: 15px; font-size: 1.8rem; margin-top: 0; margin-bottom: 20px; font-weight: bold;
         }
         
+        /* Resim Alanı */
         .image-container { 
             width: 100%; height: auto; 
             background-color: #fff; border-radius: 8px; border: 1px solid #eee; 
@@ -61,6 +62,16 @@
             transition: transform 0.3s ease; cursor: pointer; 
         }
         .chart-img:hover { transform: scale(1.03); }
+
+        /* IFRAME ALANI (İnteraktif Grafik İçin) */
+        .iframe-container {
+            width: 100%; 
+            height: 500px; /* Grafiğin yüksekliği */
+            border: 1px solid #eee; 
+            border-radius: 8px; 
+            overflow: hidden;
+            background-color: white;
+        }
 
         .placeholder { 
             color: #aaa; font-weight: bold; font-size: 1.5rem; border: 2px dashed #ddd; background: #fdfdfd; 
@@ -130,9 +141,15 @@
             </div>
             
             <div class="chart-box">
-                <h2 class="chart-title">4. Station Network</h2>
-                <div class="image-container placeholder">Chart 4 Coming Soon</div>
-                <p class="chart-desc"><strong>Analysis:</strong> Description area for the fourth chart.</p>
+                <h2 class="chart-title">4. Station Network (Interactive)</h2>
+                
+                <div class="iframe-container">
+                    <iframe src="interactive.html" width="100%" height="100%" style="border:none;"></iframe>
+                </div>
+
+                <p class="chart-desc">
+                    <strong>Analysis:</strong> This is an interactive network map. You can zoom in, hover over nodes to see details, and drag the map to explore different areas.
+                </p>
             </div>
         </div>
     </div>
