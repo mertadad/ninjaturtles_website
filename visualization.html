@@ -79,7 +79,8 @@
         #lightbox {
             display: none; 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 1.0); /* Tam Siyah */
+            /* GÜNCELLENEN KISIM: 1.0 yerine 0.8 yapıldı (Arka plan görünür) */
+            background-color: rgba(0, 0, 0, 0.8); 
             z-index: 2000; 
             justify-content: center; align-items: center;
             cursor: pointer; 
@@ -150,7 +151,6 @@
     </div>
 
     <script>
-        // Zoom açma fonksiyonu
         function openLightbox(imgElement) {
             var lightbox = document.getElementById('lightbox');
             var lightboxImg = document.getElementById('lightbox-img');
@@ -159,16 +159,15 @@
             lightbox.style.display = 'flex';  
         }
 
-        // Zoom kapatma fonksiyonu
         function closeLightbox() {
             var lightbox = document.getElementById('lightbox');
             lightbox.style.display = 'none'; 
         }
 
-        // --- YENİ EKLENEN KISIM: ESC TUŞU DİNLEYİCİSİ ---
+        // ESC TUŞU DİNLEYİCİSİ
         document.addEventListener('keydown', function(event) {
-            if (event.key === "Escape") { // Eğer basılan tuş "Escape" ise
-                closeLightbox(); // Kapatma fonksiyonunu çalıştır
+            if (event.key === "Escape") { 
+                closeLightbox(); 
             }
         });
     </script>
