@@ -75,17 +75,17 @@
         }
         .chart-img:hover { transform: scale(1.03); }
 
-        /* IFRAME (INTERACTIVE MAP) AYARLARI - GÜNCELLENDİ */
+        /* IFRAME AYARLARI */
         .iframe-container {
-            width: 100%; /* Beyaz kutunun genişliğini tam kaplar */
+            width: 100%; 
             height: 600px; 
-            border: 1px solid #ddd; /* Hafif bir çerçeve */
+            border: 1px solid #ddd; 
             border-radius: 8px; 
             overflow: hidden; 
             background-color: white;
-            margin: 0 auto 30px auto; /* Ortalar ve altına boşluk bırakır */
+            margin: 0 auto 30px auto; 
             display: block;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Şık bir gölge */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .placeholder { 
@@ -93,7 +93,8 @@
             height: 400px; display: flex; justify-content: center; align-items: center;
         }
         
-        .chart-desc { margin-top: 20px; color: #666; font-size: 1.2rem; line-height: 1.6; background-color: #f0f8ff; padding: 15px; border-radius: 5px; }
+        /* Metin Ayarları: 1.2rem ve Justify */
+        .chart-desc { margin-top: 20px; color: #444; font-size: 1.2rem; line-height: 1.6; background-color: #f9fbfd; padding: 20px; border-radius: 8px; text-align: justify; }
 
         footer { text-align: center; color: #ddd; padding: 20px; font-size: 0.9rem; margin-top: 20px; }
 
@@ -147,15 +148,13 @@
                 <div class="image-container">
                     <img src="heatmap.png" alt="Heatmap Chart" class="chart-img" onclick="openLightbox(this)">
                 </div>
-                <p class="chart-desc" style="font-size: 1.2rem; line-height: 1.6; text-align: justify;">
-                    This heatmap illustrates how New York City moves over the course of a week based on millions of data points. Darker colors represent periods of higher bike usage, and at first glance, it becomes clear that the city follows a distinctive “daily pulse”.
+                <p class="chart-desc">
+                    This heatmap illustrates New York City’s distinctive “daily pulse” through millions of data points. Weekday peaks at 08:00 and between 17:00–18:00 highlight Citi Bike’s critical role as a primary commuting tool used to bypass traffic congestion. During weekends, however, the pattern shifts significantly toward the afternoon, reflecting a transition from work-related travel to recreational use.
                     <br><br>
-                    On weekdays, the dark blue areas around 08:00 in the morning and especially between 17:00 and 18:00 in the evening stand out immediately. This indicates that New Yorkers primarily use Citi Bike as a commuting tool to travel to and from work, often as a way to avoid traffic congestion. During weekends, however, this pattern changes significantly. Instead of riding early in the morning, users tend to bike more frequently in the afternoon, typically between 12:00 and 18:00, suggesting a shift toward recreational use. At night, the heatmap becomes nearly empty, representing the period when the system is largely inactive, and bikes are prepared for the following day.
+                    While this visualization demonstrates how predictable urban movement can be, this very predictability creates a major operational challenge. Because thousands of people move in the same direction at the exact same time, the system faces massive pressure. This regular flow forms the foundation for the next stage of our project: understanding the resulting logistical imbalance between stations.
                     <br><br>
-                    While this visualization demonstrates how predictable bike usage patterns are, this very predictability creates a major operational challenge. Because thousands of people move in the same direction at the same time, the system faces massive pressure. This regular flow forms the foundation for the next stage of our project: understanding the resulting logistical imbalance between stations.
-                    <br><br>
-                    <em style="font-size: 1rem; color: #666; display: block; border-top: 1px solid #ddd; padding-top: 10px;">
-                        Note: This visualization was created by aggregating raw Citi Bike data by day and hour. The letter “k” next to the values represents thousands; for example, 740k indicates 740,000 trips were recorded during that time interval.
+                    <em style="color: #666; font-size: 1.1rem; display: block; margin-top: 15px; border-top: 1px solid #ddd; padding-top: 10px;">
+                        Note: Data represents the general average from November 2024 to October 2025. The letter “k” represents thousands (e.g., 740k indicates 740,000 trips).
                     </em>
                 </p>
             </div>
@@ -171,25 +170,31 @@
                     <img src="legend.png" alt="Chart Legend" style="width: 100%; height: 100px; object-fit: fill; border: 1px solid #eee; padding: 10px; border-radius: 8px; background-color: #fff;">
                 </div>
 
-                <p class="chart-desc" style="font-size: 1.2rem; line-height: 1.6; text-align: justify;">
-                    While the city follows a predictable rhythm, this movement creates one of the biggest operational challenges in the New York Citi Bike network: the severe imbalance of bikes between stations. From an industrial engineer's perspective, this chart illustrates the logistical strain on the system and reveals how bicycles tend to 'cluster' in certain areas.
+                <p class="chart-desc">
+                    While the city follows a predictable rhythm, this movement creates a severe imbalance of bikes between stations. From an industrial engineer's perspective, this chart illustrates the logistical strain on the system by highlighting the 30 most imbalanced stations based on the 'Net Balance' (Inflows - Outflows) formula.
                     <br><br>
-                    Based on the 'Net Balance' (Inflows - Outflows) formula, we can categorize the 30 most imbalanced stations into two distinct types:
+                    <strong>Sources (Red Bars):</strong> These are starting points for thousands of journeys, such as Central Park West & W 68th St, which shows a massive deficit of -72.7k.
                     <br><br>
-                    <strong>Sources (Red Bars):</strong> These stations act as the starting points for thousands of journeys. A striking example is the Central Park West & W 68th St station, which shows a massive deficit of -72.7k, meaning thousands of riders start here but almost no one returns.
+                    <strong>Sinks (Blue Bars):</strong> These are accumulation points like Broadway & W 56th St, where bikes pile up but few new trips begin.
                     <br><br>
-                    <strong>Sinks (Blue Bars):</strong> These are 'accumulation points' like Broadway & W 56th St, where bikes constantly pile up, but very few people start a new trip.
+                    A fascinating disparity exists: red bars reach as high as -70k, while blue bars only reach about +4.8k. This reflects the 'Hub & Spoke' model of urban life, where riders pick up bikes in massive waves from specific hubs (subways or park entrances) but scatter to thousands of decentralized destinations. The result is a system of "Giant Sources" versus thousands of "Tiny Sinks".
                     <br><br>
-                    You may notice a fascinating disparity: red bars (deficits) reach as high as -70k, while the largest blue bars (excesses) only reach about +4.8k. This is not a data error, but a reflection of the 'Hub & Spoke' model of urban life. People pick up bikes in massive waves from specific hubs—like subway exits or major park entrances—creating 'giant holes' in the system. However, those riders then scatter to thousands of different destinations, returning bikes in small numbers to decentralized stations. The result is a system of 'Giant Sources' versus thousands of 'Tiny Sinks.'
-                    <br><br>
-                    This constant redistribution challenge is why Citi Bike teams must move thousands of bikes by truck every single day to prevent 'empty docks' at sources and 'no parking' at sinks. Yet, despite this logistical struggle, the scale of this movement leads to an incredible environmental achievement. In the next section, we will see how these millions of miles traveled translate into measurable carbon savings and what the future holds for the city's sustainability.
+                    This imbalance requires Citi Bike teams to move thousands of bikes by truck daily to prevent empty docks or full stations. Despite this logistical struggle, the scale of this movement leads to an incredible environmental achievement, which we will quantify in the next section.
                 </p>
             </div>
             
             <div class="chart-box">
-                <h2 class="chart-title">3. User Demographics</h2>
-                <div class="image-container placeholder">Chart 3 Coming Soon</div>
-                <p class="chart-desc"><strong>Analysis:</strong> Description area for the third chart.</p>
+                <h2 class="chart-title">3. Environmental Impact: Regression Analysis</h2>
+                
+                <div class="image-container placeholder">Multiple Regression Chart Coming Soon</div>
+                
+                <p class="chart-desc">
+                    Why do we tackle immense logistical challenges to move thousands of bikes every day? The answer lies in the environmental legacy of every journey. Beyond operational struggles, our Multiple Regression Model quantifies the Citi Bike network as a massive carbon-saving engine for New York City.
+                    <br><br>
+                    With an R-squared value reaching near one and a high F-statistic, our model proves that distance traveled is the primary driver of carbon savings. The data reveals a powerful truth: every kilometer pedaled prevents about 146 grams of toxic gases from entering our atmosphere. Over our nearly three-year dataset, the 3,000 tons of CO<sub>2</sub> saved is equivalent to the air-purifying power of over 150,000 mature trees.
+                    <br><br>
+                    This analysis proves that every operational fix directly accelerates New York’s green goals. Behind the logistical chaos is a silent, powerful forest growing with every pedal stroke. Now, you can witness this living network in action and explore the interactive map below.
+                </p>
             </div>
             
             <div class="chart-box">
@@ -199,22 +204,20 @@
                     <iframe src="interactive.html" width="100%" height="100%" style="border:none;" scrolling="no"></iframe>
                 </div>
 
-                <p class="chart-desc" style="font-size: 1.2rem; line-height: 1.6; text-align: justify;">
-                    <em style="color: #555; display: block; margin-bottom: 15px;">(Data represents the general average from November 2024 to October 2025. The timeline is mapped to a 24-hour representative cycle.)</em>
+                <p class="chart-desc">
+                    <em style="color: #666; display: block; margin-bottom: 20px;">(Data represents the general average from November 2024 to October 2025 mapped to a 24-hour cycle.)</em>
                     
-                    Now that we have explored the city’s overall rhythm and identified the high-level logistical challenges, it is time to see the system in action. This interactive map brings the entire NYC Citi Bike network to life, allowing you to witness the 24-hour flow of the city across all five boroughs.
+                    It is time to see the system in action. This interactive map brings the entire NYC Citi Bike network to life, allowing you to witness a simulated "typical day" in New York. Instead of a single date in history, this visualization reveals how the city breathes across all five boroughs based on averages calculated from November 2024 to October 2025.
                     <br><br>
-                    By framing this as a "24-Hour Average Flow Cycle," we provide a clear and professional overview of the network. While the timeline may show a specific date, the data actually represents the general daily average calculated from November 2024 to October 2025. This ensures that you aren't just looking at a single day in history, but a simulated "typical day" in New York, revealing how the system functions on a regular basis.
+                    Explore the network through these interactive features:
                     <br><br>
-                    As you navigate the map, you can dive into the specifics of any station through several interactive features:
+                    <strong>Size and Scale:</strong> Marker height reacts to real-time usage, highlighting the city's busiest hubs.
                     <br><br>
-                    <strong>Size and Scale:</strong> The height and volume of each station marker react to usage data, making it easy to spot the busiest hubs at a glance.
+                    <strong>Dynamic Color Coding:</strong> Colors represent the "Net Balance"—red markers are Sources (more departures), while blue markers are Sinks (more arrivals).
                     <br><br>
-                    <strong>Dynamic Color Coding:</strong> The colors are directly linked to the "Net Balance" of the station. Red markers indicate Sources (stations with more departures than arrivals), while blue markers indicate Sinks (stations where bikes are accumulating).
+                    <strong>Station Details:</strong> Click any station to see its name and exact balance at any moment in the cycle.
                     <br><br>
-                    <strong>Detailed Station Status:</strong> By clicking on a specific station, you can see its exact name and Net Balance at any given moment during the cycle.
-                    <br><br>
-                    This tool transforms abstract numbers into a tangible experience. You can follow the tidal waves of cyclists moving into Manhattan during the morning or see how residential neighborhoods empty out. By putting the data in your hands, this final visualization allows you to see exactly how the logistical challenges we discussed play out on your own street or at your favorite park.
+                    This tool transforms abstract numbers into a tangible experience. Whether it’s the morning tidal wave into Manhattan or the evening return to residential neighborhoods, you can now see exactly how the logistical challenges we discussed play out on your own street or at your favorite park.
                 </p>
             </div>
 
