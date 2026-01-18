@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NYC Citi Bike | Full Project</title>
     <style>
-        /* --- GENEL AYARLAR --- */
+        /* --- GENERAL SETTINGS --- */
         body { 
             margin: 0; padding: 0; 
             font-family: Arial, sans-serif; 
             background-color: #333; color: #333; overflow-x: hidden; 
         }
         
-        /* Kaydırma Efekti (Smooth Scroll) */
+        /* Smooth Scrolling for One-Page Navigation */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Arkaplan Videosu */
+        /* Background Video */
         #bg-video {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: -1; object-fit: cover; filter: blur(8px); transform: scale(1.3);
         }
 
-        /* Navigasyon (Sticky) */
+        /* Navigation Bar (Sticky) */
         nav { 
             background-color: rgba(255, 255, 255, 0.95); 
             padding: 10px 50px; 
@@ -38,35 +38,34 @@
         
         nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
         nav ul li { margin-left: 30px; }
-        /* Linklere tıklandığında renk değişimi */
         nav ul li a { text-decoration: none; color: #555; font-weight: bold; font-size: 20px; transition: 0.3s; }
         nav ul li a:hover { color: #00AEEF; }
 
-        /* --- BÖLÜM (SECTION) AYARLARI --- */
-        section {
-            padding: 60px 0; /* Bölümler arası boşluk */
-            border-bottom: 1px solid rgba(0,0,0,0.1); /* İnce ayraç çizgi */
-            scroll-margin-top: 100px; /* Menünün altında kalmaması için ayar */
-        }
-
-        /* Ana İçerik Kutusu */
+        /* --- LAYOUT & SECTIONS --- */
         .main-container { width: 85%; max-width: 1000px; margin: 0 auto; }
-        
-        .page-title { 
-            background-color: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 12px; text-align: center; margin-bottom: 30px; 
+
+        section {
+            padding: 40px 0 80px 0; /* Vertical spacing between sections */
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            scroll-margin-top: 100px; /* Offset for sticky nav */
         }
 
-        /* Intro ve Kutu Stilleri */
-        .intro-box, .content-box {
+        /* Common Box Styles */
+        .content-box, .intro-box, .detail-box, .chart-box {
             background-color: rgba(255, 255, 255, 0.95); 
             padding: 30px; 
             border-radius: 12px; 
-            margin-bottom: 50px; 
+            margin-bottom: 40px; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
-        
-        /* Başlık Stilleri */
-        .section-header, h2.chart-title {
+
+        /* Titles */
+        .page-title { 
+            background-color: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 12px; text-align: center; margin-bottom: 30px; 
+        }
+        h1 { margin: 0; color: #333; font-weight: bold; font-size: 2.5rem; }
+
+        .section-header, h2.chart-title, h3 { 
             color: #2c3e50; 
             border-left: 5px solid #00AEEF; 
             padding-left: 15px; 
@@ -75,20 +74,36 @@
             margin-bottom: 20px; 
             font-weight: bold;
         }
+        h3 { font-size: 1.8rem; }
+
+        /* Text Styles */
+        p { font-size: 1.2rem; line-height: 1.8; color: #444; margin-bottom: 20px; text-align: justify; }
         
-        /* --- VISUALIZATION ÖZEL CSS --- */
+        /* --- HOME SECTION SPECIFIC --- */
+        .home-content {
+            text-align: center;
+            padding: 50px;
+        }
+        .cta-btn { 
+            background-color: #00AEEF; color: white; padding: 12px 25px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1rem; 
+            display: inline-block; margin: 10px; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        }
+        .cta-btn:hover { background-color: #008ac0; transform: scale(1.02); }
+
+        /* --- DETAILS SECTION SPECIFIC --- */
+        ol.research-list { margin: 0; color: #444; font-size: 1.1rem; padding-left: 20px; line-height: 1.8; }
+        ol.research-list li { margin-bottom: 15px; font-weight: bold; }
+
+        /* --- VISUALIZATION SECTION SPECIFIC --- */
         .charts-grid { display: grid; grid-template-columns: 1fr; gap: 50px; }
-        .chart-box { background-color: rgba(255, 255, 255, 0.98); padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
         
         .image-container { 
             width: 100%; height: auto; 
             background-color: #fff; border-radius: 8px; border: 1px solid #eee; 
             overflow: hidden; display: block; 
         }
-        .chart-img { 
-            width: 100%; height: auto; display: block; 
-            transition: transform 0.3s ease; cursor: pointer; 
-        }
+        .chart-img { width: 100%; height: auto; display: block; transition: transform 0.3s ease; cursor: pointer; }
         .chart-img:hover { transform: scale(1.03); }
 
         .iframe-container {
@@ -101,7 +116,12 @@
 
         .chart-desc { margin-top: 20px; color: #444; font-size: 1.2rem; line-height: 1.6; background-color: #f9fbfd; padding: 20px; border-radius: 8px; text-align: justify; }
 
-        footer { text-align: center; color: #ddd; padding: 20px; font-size: 0.9rem; margin-top: 20px; background-color: rgba(0,0,0,0.8); }
+        /* Footer */
+        footer { 
+            background-color: rgba(0,0,0,0.8); 
+            color: #ddd; padding: 30px; text-align: center; font-size: 0.9rem; margin-top: 50px; 
+        }
+        .footer-names { margin-top: 10px; font-weight: bold; line-height: 1.5; }
 
         /* Lightbox */
         #lightbox {
@@ -130,45 +150,52 @@
     </nav>
 
     <div class="main-container">
-        
+
         <section id="home">
-            <div class="page-title">
-                <h1 style="margin:0; color:#333; font-weight: bold;">Welcome to NYC Citi Bike Project</h1>
-            </div>
-            
-            <div class="intro-box">
-                <h2 class="section-header">Project Overview</h2>
-                <p style="font-size: 1.2rem; line-height: 1.8;">
-                    [BURAYA ESKİ INDEX.HTML SAYFASINDAKİ YAZILARI YAPIŞTIRABİLİRSİN. 
-                    Örneğin: Welcome to our project analyzing the Citi Bike system...]
+            <div class="intro-box home-content">
+                <h1>NYC Citi Bike Analysis</h1>
+                <p style="text-align: center; margin-top: 20px;">
+                    Welcome to our comprehensive analysis of the NYC Citi Bike network. 
+                    Scroll down to explore project details, methodologies, and interactive data visualizations.
                 </p>
+                <div style="margin-top: 30px;">
+                    <a href="#details" class="cta-btn">Explore the Details</a>
+                    <a href="#visualization" class="cta-btn">Explore the Charts</a>
+                </div>
             </div>
         </section>
-
 
         <section id="details">
             <div class="page-title">
-                <h1 style="margin:0; color:#333; font-weight: bold;">Project Details</h1>
+                <h1>Project Details</h1>
             </div>
 
-            <div class="content-box">
-                <h2 class="section-header">Methodology & Data</h2>
-                <p style="font-size: 1.2rem; line-height: 1.8;">
-                     [BURAYA ESKİ DETAILS.HTML SAYFASINDAKİ YAZILARI YAPIŞTIRABİLİRSİN.
-                     Örneğin: We used Python and Pandas to analyze...]
-                </p>
+            <div class="detail-box">
+                <h3>Research Questions</h3>
+                <ol class="research-list">
+                    <li>How do the movement patterns of New York Citi Bike users across the city change according to the time of day and day of the week? What does the spatial density map look like during peak traffic hours?</li>
+                    <li>Which stations within the network create logistical imbalances in the system when the inflow and outflow volumes are compared? In other words, which stations have excessive bicycle accumulation (sink) or persistent shortages (source)?</li>
+                    <li>Based on past monthly data, what's the statistical explanation of the carbon emissions savings provided by the system in terms of the total distance travelled and total number of trips as independent variables, and what are the estimated savings for the coming months?</li>
+                </ol>
+            </div>
+
+            <div class="detail-box">
+                <h3>Explanation</h3>
+                <p>This platform explores the dynamic movement patterns of the New York Citi Bike network—one of the world's largest bike-sharing systems—through the perspective of data analytics, spatial density, and environmental sustainability. By examining urban mobility, we aim to understand not only the efficiency of city transit but also how these shifting patterns contribute to a more sustainable future for New York City.</p>
+                <p>The rhythm of the city changes significantly based on the time of day and the day of the week. Our analysis explores more into user behavior to visualize the flow of bike traffic across the district. Through spatial density mapping, we highlight the significant migration between residential neighborhoods and commercial hubs during peak hours, illustrating how movement shifts from the structured commutes of the workweek to the recreation-driven patterns of the weekend.</p>
+                <p>Beyond general movement, the operational success of the network depends on the balance between bike inflows and outflows at individual stations. This research identifies critical logistical imbalances, pinpointing "source" stations that experience persistent shortages and "sink" stations where bikes tend to accumulate excessively. Mapping these disparities is essential for optimizing rebalancing strategies and ensuring that the system remains reliable and accessible for all users at any given time.</p>
+                <p>Ultimately, every bike trip represents more than just a commute; it is a measurable contribution to carbon reduction. By analyzing historical data, we utilize a statistical model to quantify carbon emission savings using total distance traveled and trip frequency as key variables. In addition to assessing past performance, we provide data-driven forecasts to estimate the environmental impact and carbon savings the system is projected to achieve in the months ahead.</p>
             </div>
         </section>
 
-
         <section id="visualization">
             <div class="page-title">
-                <h1 style="margin:0; color:#333; font-weight: bold;">Data Visualizations</h1>
+                <h1>Data Visualizations</h1>
             </div>
 
             <div class="intro-box">
                 <h2 class="section-header">Data in Motion: Visualizing NYC’s Citi Bike Network</h2>
-                <p style="font-size: 1.2rem; line-height: 1.8; color: #444; margin-top: 0;"> 
+                <p style="margin-top: 0;"> 
                     Numbers tell a story, but visualizations bring that story to life. This project transforms millions of data points into a narrative of urban movement, revealing the heartbeat of New York City.
                     <br><br>
                     Throughout this journey, we will uncover the city’s daily rhythm, expose the logistical struggles of station imbalances, and quantify the environmental impact of green commuting. Finally, you will have the tools to explore these patterns yourself.
@@ -259,7 +286,7 @@
 
             <div class="intro-box" style="margin-top: 50px;">
                 <h2 class="section-header">Conclusion</h2>
-                <p style="font-size: 1.2rem; line-height: 1.8; color: #444; margin-top: 0; text-align: justify;">
+                <p style="margin-top: 0;">
                     This project reveals the NYC Citi Bike network as a complex ecosystem where data-driven insights drive urban sustainability. By linking predictable daily rhythms to logistical imbalances, we demonstrate how every operational fix supports a greener purpose. Our analysis proves the network saves thousands of tons of CO<sub>2</sub>—the equivalent of well over a hundred thousand trees. Ultimately, every pedal stroke is a measurable step toward a more efficient and sustainable New York.
                 </p>
             </div>
@@ -267,7 +294,13 @@
 
     </div>
     
-    <footer>© 2026 NYC Bike Project</footer>
+    <footer>
+        <div class="footer-title">2025-2026 IE 421 Data Science for Engineering Term Project</div>
+        <div class="footer-names">
+            Bersu Yılmaz | Emirhan Karaca | Mert Ada Demirbaş | Veli Erenay Açıl
+        </div>
+        <div style="margin-top: 15px;">© 2026 NYC Bike Project</div>
+    </footer>
 
     <div id="lightbox" onclick="closeLightbox()">
         <img id="lightbox-img" src="" onclick="event.stopPropagation()"> 
@@ -286,6 +319,15 @@
         }
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") { closeLightbox(); }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById("bg-video");
+            video.play().catch(function(error) {
+                console.log("Video autoplay prevented by browser policy.");
+            });
         });
     </script>
 </body>
